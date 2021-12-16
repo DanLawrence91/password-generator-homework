@@ -37,8 +37,24 @@ function generatePassword(){
     return alert("Please select number of characters below 128");
   }
 
-  if (userPassword > 8 || userPassword < 128){
-    return confirm('Please select whether you want lower case letters?')
+  // if (userPassword > 8 || userPassword < 128){
+  //  confirm('Please select whether you want lowercase letters? \nOk for yes, Cancel for no')
+  // }
+
+  var lowerCase = confirm('Please select whether you want to use lowercase characters?')
+  console.log(lowerCase)
+
+  var upperCase = confirm('Please select whether you want to use uppercase characters?')
+  console.log(upperCase)
+
+  var numbers = confirm('Please select whether you want to use numbers?')
+  console.log(numbers)
+
+  var specialCase = confirm('Please select whether you want to use special characters?')
+  console.log(specialCase)
+
+  if ((lowerCase === false && upperCase === false) && (numbers === false && specialCase === false)){
+    return window.alert('At least one type of character must be selected. \nPlease try agin.');
   }
 }
 
