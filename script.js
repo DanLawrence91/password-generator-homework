@@ -17,8 +17,32 @@ const passwordKeys = {
   useCapital: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
   useLower: "abcdefghijklmnopqrstuvwxyz",
   useSpecial: "!@#$%^&*();:,.<>",
-  useNumeric: "1234567890",
+  useNumeric: "0123456789",
 }
+
+function generatePassword(){
+  let userPassword = prompt("Please pick how many characters you want the password to be. It must be between 8 and 128 characters in length");
+
+  if (!userPassword){
+    return;
+  }
+
+  //need to test if this set to 7 or 8. also may need to change from confirm to other e.g prompt or alert
+  if (userPassword < 8){
+    return alert("Please select number of characters over 8");
+  }
+
+  //need to test if this set to 127 or 128. also may need to change from confirm to other e.g prompt or alert
+  if (userPassword > 128){
+    return alert("Please select number of characters below 128");
+  }
+
+  if (userPassword > 8 || userPassword < 128){
+    return confirm('Please select whether you want lower case letters?')
+  }
+}
+
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
