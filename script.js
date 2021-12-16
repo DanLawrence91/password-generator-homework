@@ -10,33 +10,26 @@ function writePassword() {
 
 }
 
-// variables set for different character types
-var charsCapital = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-var charsNumeric = "1234567890"
-var charsLower = "abcdefghijklmnopqrstuvwxyz"
-var special = "!@#$%^&*();:,.<>"
 // set function for generate password to include prompts from acceptance criteria
-var generatePassword = function() {
-  
-  //prompts needed for each character type and password length
-  var charNum = prompt("Please pick how many characters you want the password to be. It must be between 8 and 128 characters in length");
 
-  if (!charNum){
-    return;
-  }
 
-  //need to test if this set to 7 or 8. also may need to change from confirm to other e.g prompt or alert
-  if (charNum < 8){
-    return confirm("Please select number of characters over 8");
-  }
-
-  //need to test if this set to 127 or 128. also may need to change from confirm to other e.g prompt or alert
-  if (charNum > 128){
-    return confirm("Please select number of characters below 128");
-  }
-
-  
+const passwordKeys = {
+  useCapital: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  useLower: "abcdefghijklmnopqrstuvwxyz",
+  useSpecial: "!@#$%^&*();:,.<>",
+  useNumeric: "1234567890",
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
+/* need to set so if first prompt is correct, moves to second prompt,
+then can be yes or no but needs to move through prompts for each character type,
+at end need to use selections from each prompt to generate a password as long as at least one
+is selected. If one hasn't been selected set alert saying at least one needs to be selected
+something to do with character variables index numbers - 
+e.g. var specialSelection = Math.floor(Math.random() * charSpecial.length); that should select
+selections from each character list. 
+Need to tie this with character length selected. charGen selection will determine how many of 
+each selected */
