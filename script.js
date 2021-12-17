@@ -64,9 +64,9 @@ function generatePassword(){
     //maybe look at loop to take back to initial question
     return alert('At least one type of character must be selected. \nPlease try agin.');
   }  
-
-  for (password = userChars; password < charLength;){
-    return userChars;
+  
+  for (let i = 0; i < charLength; i++){
+    return password += userChars(Math.floor(Math.random() * userChars.length));
   }
   
   // if ((lowerCase === true || upperCase === true || number === true || specialCase === true)){
