@@ -12,38 +12,44 @@ function writePassword() {
 
 // set function for generate password to include prompts from acceptance criteria
 
-let useCapital = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-let useLower = "abcdefghijklmnopqrstuvwxyz";
-let useSpecial = "!@#$%^&*();:,.<>";
-let useNumber = "0123456789";
+var useCapital = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var useLower = "abcdefghijklmnopqrstuvwxyz";
+var useSpecial = "!@#$%^&*();:,.<>";
+var useNumber = "0123456789";
 
 //random character generators
-let indexCapital = (Math.floor(Math.random() * useCapital.length))
-let randomCapital = useCapital[indexCapital]
+var indexCapital = (Math.floor(Math.random() * useCapital.length))
+var randomCapital = useCapital[indexCapital]
 console.log(randomCapital) //console.log to check it works
 
-let indexLower = (Math.floor(Math.random() * useLower.length))
-let randomLower = useLower[indexLower]
+var indexLower = (Math.floor(Math.random() * useLower.length))
+var randomLower = useLower[indexLower]
 console.log(randomLower) //console.log to check it works
 
-let indexSpecial = (Math.floor(Math.random() * useSpecial.length))
-let randomSpecial = useSpecial[indexSpecial]
+var indexSpecial = (Math.floor(Math.random() * useSpecial.length))
+var randomSpecial = useSpecial[indexSpecial]
 console.log(randomSpecial) //console.log to check it works
 
-let indexNumber = (Math.floor(Math.random() * useNumber.length))
-let randomNumber = useNumber[indexNumber]
+var indexNumber = (Math.floor(Math.random() * useNumber.length))
+var randomNumber = useNumber[indexNumber]
 console.log(randomNumber) //console.log to check it works
 
+// let randomSelection = {
+//   lower: randomLower,
+//   upper: randomCapital,
+//   number: randomNumber,
+//   special: randomSpecial
+// }
+
+// console.log(randomSelection.lower)
+// console.log(randomSelection.upper)
+// console.log(randomSelection.number)
+// console.log(randomSelection.special)
+// used above as a test to check object written correctly
+
 function generatePassword(){
-  let result = {
-    charLength: "",
-    lowerCase: "",
-    upperCase: "",
-    numbers: "",
-    specialCase: "",
-  }
   
-  let charLength = prompt("Please pick how many characters you want the password to be. It must be between 8 and 128 characters in length");
+  var charLength = prompt("Please pick how many characters you want the password to be. It must be between 8 and 128 characters in length");
 
   //validations if character length selection outside range of if no selection made
   if (!charLength){
@@ -60,17 +66,19 @@ function generatePassword(){
     return alert("Please select number of characters below 128");
   }
 
+  console.log(charLength)
+
   //set up following confirmation messages if character length passes validation checks
-  let lowerCase = confirm('Please select whether you want to use lowercase characters?')
+  var lowerCase = confirm('Please select whether you want to use lowercase characters?')
   console.log(lowerCase) //console log on each to check whether selection saved to computer
 
-  let upperCase = confirm('Please select whether you want to use uppercase characters?')
+  var upperCase = confirm('Please select whether you want to use uppercase characters?')
   console.log(upperCase)
 
-  let numbers = confirm('Please select whether you want to use numbers?')
+  var numbers = confirm('Please select whether you want to use numbers?')
   console.log(numbers)
 
-  let specialCase = confirm('Please select whether you want to use special characters?')
+  var specialCase = confirm('Please select whether you want to use special characters?')
   console.log(specialCase)
 
   //validation to make sure at least one of the criteria is selected, if not returns to start 
@@ -78,15 +86,16 @@ function generatePassword(){
     //maybe look at loop to take back to initial question
     return alert('At least one type of character must be selected. \nPlease try agin.');
   }  
+
+  if ((lowerCase === true || upperCase === true || number === true || specialCase === true)){
+    var passwordResult = ''
+    for (i = 0; i < charLength; i++){
+      passwordResult += randomCapital += randomLower += randomNumber += randomSpecial
+    }
+    return passwordResult;
+  }
+
 }
-  //let characters = (lowerCase === true || upperCase === true || number === true || specialCase === true)
-
-  // if ((lowerCase === true || upperCase === true || number === true || specialCase === true)){
-  //   return //password will go here
-  // }
-
-
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
