@@ -17,24 +17,21 @@ let useLower = "abcdefghijklmnopqrstuvwxyz";
 let useSpecial = "!@#$%^&*();:,.<>";
 let useNumber = "0123456789";
 
-var indexCapital = (Math.floor(Math.random() * useCapital.length))
-var randomCapital = useCapital[indexCapital]
-
+//random character generators
+let indexCapital = (Math.floor(Math.random() * useCapital.length))
+let randomCapital = useCapital[indexCapital]
 console.log(randomCapital) //console.log to check it works
 
-var indexLower = (Math.floor(Math.random() * useLower.length))
-var randomLower = useLower[indexLower]
-
+let indexLower = (Math.floor(Math.random() * useLower.length))
+let randomLower = useLower[indexLower]
 console.log(randomLower) //console.log to check it works
 
-var indexSpecial = (Math.floor(Math.random() * useSpecial.length))
-var randomSpecial = useSpecial[indexSpecial]
-
+let indexSpecial = (Math.floor(Math.random() * useSpecial.length))
+let randomSpecial = useSpecial[indexSpecial]
 console.log(randomSpecial) //console.log to check it works
 
-var indexNumber = (Math.floor(Math.random() * useNumber.length))
-var randomNumber = useNumber[indexNumber]
-
+let indexNumber = (Math.floor(Math.random() * useNumber.length))
+let randomNumber = useNumber[indexNumber]
 console.log(randomNumber) //console.log to check it works
 
 function generatePassword(){
@@ -74,7 +71,7 @@ function generatePassword(){
     return alert('At least one type of character must be selected. \nPlease try agin.');
   }
 
-  let characters = (lowerCase === true || upperCase === true || number === true || specialCase === true)
+  //let characters = (lowerCase === true || upperCase === true || number === true || specialCase === true)
 
   // if ((lowerCase === true || upperCase === true || number === true || specialCase === true)){
   //   return //password will go here
