@@ -12,48 +12,65 @@ function writePassword() {
 
 // set function for generate password to include prompts from acceptance criteria
 
+let useCapital = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+let useLower = "abcdefghijklmnopqrstuvwxyz";
+let useSpecial = "!@#$%^&*();:,.<>";
+let useNumber = "0123456789";
 
-const passwordKeys = {
-  useCapital: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-  useLower: "abcdefghijklmnopqrstuvwxyz",
-  useSpecial: "!@#$%^&*();:,.<>",
-  useNumeric: "0123456789",
-}
+var indexCapital = (Math.floor(Math.random * useCapital.length))
+var randomCapital = useCapital[indexCapital]
+
+var indexLower = (Math.floor(Math.random * useLower.length))
+var randomLower = useLower[indexLower]
+
+var indexSpecial = (Math.floor(Math.random * useSpecial.length))
+var randomSpecial = useSpecial[indexSpecial]
+
+var indexNumber = (Math.floor(Math.random * useNumber.length))
+var randomNumber = useNumber[indexNumber]
 
 function generatePassword(){
-  let userPassword = prompt("Please pick how many characters you want the password to be. It must be between 8 and 128 characters in length");
+  let charLength = prompt("Please pick how many characters you want the password to be. It must be between 8 and 128 characters in length");
 
-  if (!userPassword){
+  //validations if character length selection outside range of if no selection made
+  if (!charLength){
     return;
   }
-
+  
   //need to test if this set to 7 or 8. also may need to change from confirm to other e.g prompt or alert
-  if (userPassword < 8){
+  if (charLength < 8){
     return alert("Please select number of characters over 8");
   }
 
   //need to test if this set to 127 or 128. also may need to change from confirm to other e.g prompt or alert
-  if (userPassword > 128){
+  if (charLength > 128){
     return alert("Please select number of characters below 128");
   }
 
-  var lowerCase = confirm('Please select whether you want to use lowercase characters?')
-  console.log(lowerCase)
+  //set up following confirmation messages if character length passes validation checks
+  let lowerCase = confirm('Please select whether you want to use lowercase characters?')
+  console.log(lowerCase) //console log on each to check whether selection saved to computer
 
-  var upperCase = confirm('Please select whether you want to use uppercase characters?')
+  let upperCase = confirm('Please select whether you want to use uppercase characters?')
   console.log(upperCase)
 
-  var numbers = confirm('Please select whether you want to use numbers?')
+  let numbers = confirm('Please select whether you want to use numbers?')
   console.log(numbers)
 
-  var specialCase = confirm('Please select whether you want to use special characters?')
+  let specialCase = confirm('Please select whether you want to use special characters?')
   console.log(specialCase)
 
+  //validation to make sure at least one of the criteria is selected, if not returns to start 
   if ((lowerCase === false && upperCase === false && numbers === false && specialCase === false)){
+    //maybe look at loop to take back to initial question
     return alert('At least one type of character must be selected. \nPlease try agin.');
   }
 
-  //if ((lowerCase === true || upperCase === true || number === true || specialCase === true))
+  let characters = (lowerCase === true || upperCase === true || number === true || specialCase === true)
+
+  // if ((lowerCase === true || upperCase === true || number === true || specialCase === true)){
+  //   return //password will go here
+  // }
 }
 
 
@@ -62,10 +79,9 @@ function generatePassword(){
 generateBtn.addEventListener("click", writePassword);
 
 
-/* need to set so if first prompt is correct, moves to second prompt,
-then can be yes or no but needs to move through prompts for each character type,
+/* 
 at end need to use selections from each prompt to generate a password as long as at least one
-is selected. If one hasn't been selected set alert saying at least one needs to be selected
+is selected.
 something to do with character variables index numbers - 
 e.g. var specialSelection = Math.floor(Math.random() * charSpecial.length); that should select
 selections from each character list. 
