@@ -35,6 +35,14 @@ let randomNumber = useNumber[indexNumber]
 console.log(randomNumber) //console.log to check it works
 
 function generatePassword(){
+  let result = {
+    charLength: "",
+    lowerCase: "",
+    upperCase: "",
+    numbers: "",
+    specialCase: "",
+  }
+  
   let charLength = prompt("Please pick how many characters you want the password to be. It must be between 8 and 128 characters in length");
 
   //validations if character length selection outside range of if no selection made
@@ -69,14 +77,14 @@ function generatePassword(){
   if ((lowerCase === false && upperCase === false && numbers === false && specialCase === false)){
     //maybe look at loop to take back to initial question
     return alert('At least one type of character must be selected. \nPlease try agin.');
-  }
-
+  }  
+}
   //let characters = (lowerCase === true || upperCase === true || number === true || specialCase === true)
 
   // if ((lowerCase === true || upperCase === true || number === true || specialCase === true)){
   //   return //password will go here
   // }
-}
+
 
 
 
