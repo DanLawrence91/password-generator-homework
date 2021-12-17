@@ -17,11 +17,9 @@ const useCapital = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 
 const useSpecial = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', ';', ':', '.', '<', '>'];
 const useNumber = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-let userChars = [];
-
 // set function for generate password to include prompts from acceptance criteria
 function generatePassword(){
-  
+  let userChars = [];
   var charLength = prompt("Please pick how many characters you want the password to be. It must be between 8 and 128 characters in length");
     //validations if character length selection outside range of if no selection made
     if (!charLength){
@@ -64,11 +62,17 @@ function generatePassword(){
     //maybe look at loop to take back to initial question
     return alert('At least one type of character must be selected. \nPlease try agin.');
   }  
-  
-  for (let i = 0; i < charLength; i++){
-    return password += userChars(Math.floor(Math.random() * userChars.length));
+  //create clone of userChars array
+  var randomChara = userChars.map(function(x){
+    return x = x
+  });
+
+  var passwordResult = '';
+  for (var i = 0; i < charLength; i++){
+    return passwordResult.push(randomChara.slice(0));
   }
-  
+  }
+
   // if ((lowerCase === true || upperCase === true || number === true || specialCase === true)){
   //   var passwordResult = ''
   //   for (i = 0; i < charLength; i++){
@@ -77,7 +81,6 @@ function generatePassword(){
   //   return passwordResult;
   // }
 
-}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
@@ -91,30 +94,3 @@ e.g. var specialSelection = Math.floor(Math.random() * charSpecial.length); that
 selections from each character list. 
 Need to tie this with character length selected. charGen selection will determine how many of 
 each selected */
-
-//random character generators
-// var indexCapital = (Math.floor(Math.random() * useCapital.length))
-// var randomCapital = useCapital[indexCapital]
-// console.log(randomCapital) //console.log to check it works
-
-// var indexLower = (Math.floor(Math.random() * useLower.length))
-// var randomLower = useLower[indexLower]
-// console.log(randomLower) //console.log to check it works
-
-// var indexSpecial = (Math.floor(Math.random() * useSpecial.length))
-// var randomSpecial = useSpecial[indexSpecial]
-// console.log(randomSpecial) //console.log to check it works
-
-// var indexNumber = (Math.floor(Math.random() * useNumber.length))
-// var randomNumber = useNumber[indexNumber]
-// console.log(randomNumber) //console.log to check it works
-
-// var randomPwChar = {
-//   capital: randomCapital,
-//   lower: randomLower,
-//   special: randomSpecial,
-//   number: randomNumber
-// }
-// console.log(randomPwChar.capital)
-
-
