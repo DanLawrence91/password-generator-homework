@@ -17,17 +17,25 @@ let useLower = "abcdefghijklmnopqrstuvwxyz";
 let useSpecial = "!@#$%^&*();:,.<>";
 let useNumber = "0123456789";
 
-var indexCapital = (Math.floor(Math.random * useCapital.length))
+var indexCapital = (Math.floor(Math.random() * useCapital.length))
 var randomCapital = useCapital[indexCapital]
 
-var indexLower = (Math.floor(Math.random * useLower.length))
+console.log(randomCapital) //console.log to check it works
+
+var indexLower = (Math.floor(Math.random() * useLower.length))
 var randomLower = useLower[indexLower]
 
-var indexSpecial = (Math.floor(Math.random * useSpecial.length))
+console.log(randomLower) //console.log to check it works
+
+var indexSpecial = (Math.floor(Math.random() * useSpecial.length))
 var randomSpecial = useSpecial[indexSpecial]
 
-var indexNumber = (Math.floor(Math.random * useNumber.length))
+console.log(randomSpecial) //console.log to check it works
+
+var indexNumber = (Math.floor(Math.random() * useNumber.length))
 var randomNumber = useNumber[indexNumber]
+
+console.log(randomNumber) //console.log to check it works
 
 function generatePassword(){
   let charLength = prompt("Please pick how many characters you want the password to be. It must be between 8 and 128 characters in length");
