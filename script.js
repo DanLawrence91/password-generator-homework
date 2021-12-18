@@ -67,7 +67,7 @@ function generatePassword(){
     return alert('At least one type of character must be selected. \nPlease try agin.');
   }  
   
-  // generate random selections of characters using index number in string at top of code, these will then be added to mainPassword variable
+  // generate random selections of characters based on character length selected using a random index number in the string of userChars, these will then be added to mainPassword variable and will loop through until password length = charLength
   var mainPassword = "";
   for (var i = 0; i < charLength; i++ ) {
     mainPassword += userChars.charAt(Math.floor(Math.random() * userChars.length));
