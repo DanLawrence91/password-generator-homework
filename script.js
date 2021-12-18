@@ -63,7 +63,7 @@ function generatePassword(charLength){
   }  
   
   //get random character from selections made by user
-  var randomChara = userChars[Math.floor(Math.random() * userChars.length)];
+  var randomChara = userChars.charAt(Math.floor(Math.random() * userChars.length));
 
 
   var mainPassword = "";
