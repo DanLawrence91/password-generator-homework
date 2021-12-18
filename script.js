@@ -10,31 +10,27 @@ function writePassword() {
 
 }
 
-
 // constants set for each type of character available to be selected
 const useLower = 'abcdefghijklmnopqrstuvwxyz';
 const useCapital = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const useSpecial = '!@#$%^&*();:.,<>';
 const useNumber = '0123456789';
 
-console.log(useLower.length)
-console.log(useCapital.length)
-
 // set function for generate password to include prompts from acceptance criteria
 function generatePassword(){
   let userChars = '';
   let charLength = prompt("Please pick how many characters you want the password to be. It must be between 8 and 128 characters in length");
-    // validations if character length selection outside range of if no selection made
+    // if nothing entered for character length or cancel is pressed it will end function
     if (!charLength){
       return;
   }
   
-    // need to test if this set to 7 or 8. also may need to change from confirm to other e.g prompt or alert
+    // make sure characters chosen is 8 or above, if not user will need to restart
     if (charLength < 8){
       return alert("Please select number of characters over 8");
   }
 
-    // need to test if this set to 127 or 128. also may need to change from confirm to other e.g prompt or alert
+    // make sure characters chosen is 128 or below, if not user will need to restart
     if (charLength > 128){
       return alert("Please select number of characters below 128");
   }
@@ -67,7 +63,7 @@ function generatePassword(){
     return alert('At least one type of character must be selected. \nPlease try agin.');
   }  
   
-  // generate random selections of characters based on character length selected using a random index number in the string of userChars, these will then be added to mainPassword variable and will loop through until password length = charLength
+  // generate random selections of characters based on character length chosen on first prompt, select a random index number in the string of userChars, which is based on selections made throughout the confirms the user has been through, these will then be added to mainPassword variable and will loop through until password length = charLength
   var mainPassword = "";
   for (var i = 0; i < charLength; i++ ) {
     mainPassword += userChars.charAt(Math.floor(Math.random() * userChars.length));
@@ -76,16 +72,5 @@ function generatePassword(){
 
 }
 
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-/* 
-at end need to use selections from each prompt to generate a password as long as at least one
-is selected.
-something to do with character variables index numbers - 
-e.g. var specialSelection = Math.floor(Math.random() * charSpecial.length); that should select
-selections from each character list. 
-Need to tie this with character length selected. charGen selection will determine how many of 
-each selected */
