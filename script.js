@@ -18,8 +18,8 @@ const useSpecial = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', ';', ':', 
 const useNumber = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 // set function for generate password to include prompts from acceptance criteria
-function generatePassword(){
-  let userChars = [];
+function generatePassword(charLength){
+  let userChars = "";
   var charLength = prompt("Please pick how many characters you want the password to be. It must be between 8 and 128 characters in length");
     //validations if character length selection outside range of if no selection made
     if (!charLength){
@@ -59,27 +59,23 @@ function generatePassword(){
   
   //validation to make sure at least one of the criteria is selected, if not returns to start 
   if ((lowerCase === false && upperCase === false && numbers === false && specialCase === false)){
-    //maybe look at loop to take back to initial question
     return alert('At least one type of character must be selected. \nPlease try agin.');
   }  
-  //create clone of userChars array
-  var randomChara = userChars.map(function(x){
-    return x = x
-  });
+  
+  //get random character from selections made by user
+  var randomChara = userChars[Math.floor(Math.random() * userChars.length)];
 
-  var passwordResult = '';
-  for (var i = 0; i < charLength; i++){
-    return passwordResult.push(randomChara.slice(0));
-  }
-  }
 
-  // if ((lowerCase === true || upperCase === true || number === true || specialCase === true)){
-  //   var passwordResult = ''
-  //   for (i = 0; i < charLength; i++){
-  //     passwordResult += 
-  //   }
-  //   return passwordResult;
-  // }
+  var mainPassword = "";
+  
+  //mainPassword = mainPassword.concat(randomChara) - its not just randomChara though as this is only one, need randomChara after loop to get string of randomChara
+  
+  for ( var i = 0; i < length; i++ ) {
+      mainPassword += randomChara;
+  }
+  return mainPassword;
+
+}
 
 
 // Add event listener to generate button
