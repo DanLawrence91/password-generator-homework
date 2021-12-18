@@ -18,7 +18,7 @@ const useSpecial = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', ';', ':', 
 const useNumber = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 // set function for generate password to include prompts from acceptance criteria
-function generatePassword(charLength){
+function generatePassword(){
   let userChars = "";
   var charLength = prompt("Please pick how many characters you want the password to be. It must be between 8 and 128 characters in length");
     //validations if character length selection outside range of if no selection made
@@ -62,16 +62,11 @@ function generatePassword(charLength){
     return alert('At least one type of character must be selected. \nPlease try agin.');
   }  
   
-  //get random character from selections made by user
-  var randomChara = userChars.charAt(Math.floor(Math.random() * userChars.length));
-
-
+  //var randomChara = ;
   var mainPassword = "";
-  
   //mainPassword = mainPassword.concat(randomChara) - its not just randomChara though as this is only one, need randomChara after loop to get string of randomChara
-  
-  for ( var i = 0; i < length; i++ ) {
-      mainPassword += randomChara;
+  for (var i = 0; i < charLength; i++ ) {
+    mainPassword += userChars.charAt(Math.floor(Math.random() * userChars.length));
   }
   return mainPassword;
 
