@@ -22,7 +22,7 @@ function generatePassword(){
   let charLength = prompt("Please pick how many characters you want the password to be. It must be between 8 and 128 characters in length");
     // if nothing entered for character length or cancel is pressed it will end function
     if (!charLength){
-      return;
+      return alert("Character length must be selected");
   }
   
     // make sure characters chosen is 8 or above, if not user will need to restart
